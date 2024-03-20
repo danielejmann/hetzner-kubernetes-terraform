@@ -47,3 +47,8 @@ As mentioned prior, the build of the VMs are fully customisable therefore you ca
 ```
 terraform apply -var 'network_ip_range=10.11.11.0/24' -var 'cluster1_ip_range=10.11.11.0/29' -var 'location=fsn1' -var 'num_masters=3' -var 'num_workers=2' -var 'hcloud_token=YOUR_HETZNER_API_TOKEN' -var 'image=ubuntu-22.04' -var 'server_type_master=cx21' -var 'server_type_worker=cx31' -var 'ansible_ssh_public_key=YOUR_SSH_PUBLIC_KEY' -var 'ansible_ssh_key_type=YOUR_SSH_KEY_TYPE'
 ```
+
+## Considerations
+
+- Hetzner Cloud is a public cloud and by default there is no firewall enabled on services that are created, including the Kube API service. A host firewall will be enabled in a later project to protect other ports via Ansible. Server access will still be public unless a VM to act as a VPN gateway is created to access services.
+- A Hetzner Cloud Load Balancer should be provisioned which points to the Kube API service on all master nodes, or the IP's added to a A record for DNS load balancing (if you can call it load balancing -- more along the lines of which IP is served first in the DNS lookup). I'll probably create a load balacer once the Kubernetes setup has been achieved through Ansible, as I could then use Hetzner load balancer as a external load balacer for workloads on the cluster, also.
