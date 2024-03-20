@@ -45,7 +45,17 @@ terraform apply
 As mentioned prior, the build of the VMs are fully customisable therefore you can edit the default variables within the variables.tf file or use the following syntax.
 
 ```
-terraform apply -var 'network_ip_range=10.11.11.0/24' -var 'cluster1_ip_range=10.11.11.0/29' -var 'location=fsn1' -var 'num_masters=3' -var 'num_workers=2' -var 'hcloud_token=YOUR_HETZNER_API_TOKEN' -var 'image=ubuntu-22.04' -var 'server_type_master=cx21' -var 'server_type_worker=cx31' -var 'ansible_ssh_public_key=YOUR_SSH_PUBLIC_KEY' -var 'ansible_ssh_key_type=YOUR_SSH_KEY_TYPE'
+terraform apply -var 'network_ip_range=10.11.11.0/24' \
+-var 'cluster1_ip_range=10.11.11.0/29' \
+-var 'location=fsn1' \
+-var 'num_masters=3' \
+-var 'num_workers=2' \
+-var 'hcloud_token=YOUR_HETZNER_API_TOKEN' \
+-var 'image=ubuntu-22.04' \
+-var 'server_type_master=cx21' \
+-var 'server_type_worker=cx31' \
+-var 'ansible_ssh_public_key=YOUR_SSH_PUBLIC_KEY' \
+-var 'ansible_ssh_key_type=YOUR_SSH_KEY_TYPE'
 ```
 
 ## Considerations
