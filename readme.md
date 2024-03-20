@@ -1,4 +1,4 @@
-#Hetzner-kubernetes-terraform
+# Hetzner-kubernetes-terraform
 
 This repository contains a Terraform configuration which builds virtual machines on the Hetzner cloud. The configuration will build out the base infrastructure but does not build out Kubernetes on the virtual machines, I plan to create another repository which will do this.
 
@@ -11,7 +11,7 @@ The configuration of this repository has been designed to be fully customisable,
 - Create 2 worker nodes named k8s-worker-\*
 - Create a ansible user with sudo privileges and a SSH key using cloud-init
 
-##Usage
+## Usage
 
 There are a few steps you will need to perform prior to using this Terraform configuration.
 
@@ -40,7 +40,7 @@ terraform plan
 terraform apply
 ```
 
-##Variables
+## Variables
 
 As mentioned prior, the build of the VMs are fully customisable therefore you can edit the default variables within the variables.tf file or use the following syntax.
 
